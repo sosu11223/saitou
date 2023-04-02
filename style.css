@@ -1,0 +1,256 @@
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.text-container {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: "Cutive Mono", monospace;
+  letter-spacing: 4px;
+  font-size: 34px;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+}
+
+span {
+  display: inline-block;
+}
+
+.reg-text {
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 3.3333333333s ease-out, opacity 5s ease;
+}
+.reg-text.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter {
+  transition: transform 5s cubic-bezier(0.43, 0.1, 0.57, 0.9), filter 5s ease, opacity 5s ease;
+  opacity: 0;
+  filter: blur(5px);
+}
+.letter:nth-of-type(2) {
+  transform: translateY(-160px);
+  transition-duration: 2.5s;
+}
+.letter:nth-of-type(3) {
+  filter: blur(0);
+  transform: translateY(-170px);
+  transition-duration: 3.8461538462s;
+}
+.letter:nth-of-type(4) {
+  transform: translateY(-200px);
+  transition-duration: 3.3333333333s;
+}
+.letter:nth-of-type(5) {
+  transform: translateY(-150px);
+  transition-duration: 2.5s;
+}
+.letter:nth-of-type(6) {
+  filter: blur(0);
+  transform: translateY(-180px);
+  transition-duration: 2.1739130435s;
+}
+.letter.loaded {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+body{
+  animation: bgchange  7000s;/*変化の時間を変更したい場合は20sの部分を好きな時間に変更*/
+}
+
+  @keyframes bgchange{
+    0%   {background:#000000;}/*変化させたい色*/
+    0.1%   {background:#000000;}
+    0.2%  {background:#ffffff;}/*変化させたい色*/
+}
+
+.fade-in0111{ 
+  opacity:0;
+  animation-name: sample011; /*←@keyframesにも同じ名前を記述*/
+  animation-duration: 10s; 
+  animation-fill-mode: forwards; 
+}
+@keyframes sample011 {  /*←animation-nameにも同じ名前を記述*/
+0% {
+  opacity: 0;
+  color:#ffffff;
+}
+90% {
+ opacity: 0;
+ color:#ffffff;
+}
+ 100% {
+  opacity: 1;
+  color:#ffffff;
+} 
+}
+
+.font001{
+    font-family: 'Noto Serif JP', serif;
+}
+
+body
+{
+  margin: 0;
+  padding: 0;
+  
+  /* make it look decent enough */
+  background: #232323;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
